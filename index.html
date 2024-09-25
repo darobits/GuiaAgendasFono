@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Integral de Turnos Fonoaudiología</title>
+    <!-- Vincular el archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Incluir Chart.js desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Plan Integral de Turnos Fonoaudiología</h1>
+    </header>
+
+    <main>
+        <!-- Sección de Guía para la confección de agendas -->
+        <section>
+            <h2>Guía para la confección de agendas</h2>
+            <h3>Objetivos:</h3>
+            <ol>
+                <li>Estandarizar un modelo prestacional actualizado para la construcción de agendas.</li>
+                <li>Implementar una estandarización con enfoque poblacional.</li>
+                <li>Promover la accesibilidad en la obtención de turnos.</li>
+                <li>Establecer nueva nomenclatura agrupada: Consulta, Tratamiento, y Prácticas con sus subespecialidades.</li>
+            </ol>
+
+            <h3>Consideraciones Generales:</h3>
+            <ul>
+                <li>Horario de prestación: 8 a 16 hs.</li>
+                <li>El profesional debe tener agenda a su nombre.</li>
+                <li>Prácticas y tratamientos requieren derivación médica.</li>
+                <li>Límite prospectivo para otorgar turnos: 28 días.</li>
+            </ul>
+
+            <h3>Canal de Otorgamiento:</h3>
+            <ul>
+                <li>Prácticas: 100% programado, exclusivo propio efector.</li>
+                <li>Tratamiento: 100% programado, exclusivo propio efector.</li>
+                <li>Consulta: 100% omnicanal.</li>
+            </ul>
+
+            <h3>Subespecialidades:</h3>
+            <ol>
+                <li>Audiología</li>
+                <li>Lenguaje y Comunicación</li>
+                <li>Fonoestomatología</li>
+                <li>Vestibular</li>
+                <li>Área de la Voz</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <!-- Sección de Distribución General de Carga Horaria -->
+        <section>
+            <h2>Distribución General de Carga Horaria</h2>
+            <ul>
+                <li>Consulta: 30% de la carga horaria total.</li>
+                <li>Tratamiento y Prácticas: 70% de la carga horaria total.</li>
+            </ul>
+
+            <h3>Ejemplo 1: Profesional con 18 horas semanales (solo asistencia ambulatoria)</h3>
+            <ul>
+                <li>Consulta: 5.4 horas (30% de 18h).</li>
+                <li>Tratamiento y Prácticas: 12.6 horas (70% de 18h).</li>
+            </ul>
+
+            <h3>Ejemplo 2: Profesional con 12 horas semanales (asistencia combinada ambulatoria e internación)</h3>
+            <ul>
+                <li>Consulta: 3.6 horas (30% de 12h).</li>
+                <li>Tratamiento y Prácticas: 8.4 horas (70% de 12h).</li>
+            </ul>
+
+            <!-- Gráfico de Distribución General de Carga Horaria -->
+            <canvas id="graficoGeneral" width="400" height="200"></canvas>
+        </section>
+
+        <hr>
+
+        <!-- Sección de Distribución por Subespecialidad -->
+        <section>
+            <h2>Distribución por Subespecialidad</h2>
+
+            <!-- 1. Fonoestomatología -->
+            <div class="subespecialidad">
+                <h3>1. Fonoestomatología</h3>
+                <ul>
+                    <li>Consulta: 30%.</li>
+                    <li>Tratamiento: 70%.</li>
+                </ul>
+
+                <h4>Ejemplo con 18 horas semanales:</h4>
+                <ul>
+                    <li>Consulta: 5.4 horas.</li>
+                    <li>Tratamiento: 12.6 horas.</li>
+                </ul>
+
+                <h4>Ejemplo con 12 horas semanales:</h4>
+                <ul>
+                    <li>Consulta: 3.6 horas.</li>
+                    <li>Tratamiento: 8.4 horas.</li>
+                </ul>
+            </div>
+
+            <!-- 2. Áreas de la Voz -->
+            <div class="subespecialidad">
+                <h3>2. Áreas de la Voz</h3>
+                <ul>
+                    <li>Prácticas: 20%.</li>
+                    <li>Consulta (del 80% restante): 30%.</li>
+                    <li>Tratamiento (del 80% restante): 70%.</li>
+                </ul>
+
+                <h4>Ejemplo con 18 horas semanales:</h4>
+                <ul>
+                    <li>Prácticas: 3.6 horas (20%).</li>
+                    <li>Del 80% restante (14.4 horas):
+                        <ul>
+                            <li>Consulta: 4.32 horas (30% de 14.4h).</li>
+                            <li>Tratamiento: 10.08 horas (70% de 14.4h).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Ejemplo con 12 horas semanales:</h4>
+                <ul>
+                    <li>Prácticas: 2.4 horas (20%).</li>
+                    <li>Del 80% restante (9.6 horas):
+                        <ul>
+                            <li>Consulta: 2.88 horas (30% de 9.6h).</li>
+                            <li>Tratamiento: 6.72 horas (70% de 9.6h).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3. Audiología -->
+            <div class="subespecialidad">
+                <h3>3. Audiología</h3>
+                <ul>
+                    <li>100% Prácticas.</li>
+                    <li>Otra posibilidad, si incluye actividad ambulatoria además de que realizan prácticas:
+                        <ul>
+                            <li>60% Prácticas y 40% Asistencial.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Ejemplo con 18 horas semanales:</h4>
+                <ul>
+                    <li>Sólo Prácticas: 18 horas.</li>
+                    <li>Con actividad ambulatoria:
+                        <ul>
+                            <li>Prácticas: 10.8 horas (60%).</li>
+                            <li>Consulta y Tratamiento: 7.2 horas (40%).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Ejemplo con 12 horas semanales:</h4>
+                <ul>
+                    <li>Sólo Prácticas: 12 horas.</li>
+                    <li>Con actividad ambulatoria:
+                        <ul>
+                            <li>Prácticas: 7.2 horas (60%).</li>
+                            <li>Consulta y Tratamiento: 4.8 horas (40%).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 4. Vestibular -->
+            <div class="subespecialidad">
+                <h3>4. Vestibular</h3>
+                <ul>
+                    <li>50% Prácticas.</li>
+                    <li>50% Consulta y Tratamiento.</li>
+                </ul>
+
+                <h4>Ejemplo con 18 horas semanales:</h4>
+                <ul>
+                    <li>Prácticas: 9 horas.</li>
+                    <li>Consulta y Tratamiento: 9 horas.</li>
+                </ul>
+
+                <h4>Ejemplo con 12 horas semanales:</h4>
+                <ul>
+                    <li>Prácticas: 6 horas.</li>
+                    <li>Consulta y Tratamiento: 6 horas.</li>
+                </ul>
+            </div>
+
+            <!-- 5. Lenguaje y Comunicación -->
+            <div class="subespecialidad">
+                <h3>5. Lenguaje y Comunicación</h3>
+                <ul>
+                    <li>Consulta: 30%.</li>
+                    <li>Tratamiento: 70%.</li>
+                </ul>
+
+                <h4>Ejemplo con 18 horas semanales:</h4>
+                <ul>
+                    <li>Consulta: 5.4 horas.</li>
+                    <li>Tratamiento: 12.6 horas.</li>
+                </ul>
+
+                <h4>Ejemplo con 12 horas semanales:</h4>
+                <ul>
+                    <li>Consulta: 3.6 horas.</li>
+                    <li>Tratamiento: 8.4 horas.</li>
+                </ul>
+            </div>
+
+            <!-- Gráficos de Distribución por Subespecialidad -->
+            <h2>Distribución por Subespecialidad</h2>
+            <canvas id="graficoFonoestomatologia" width="400" height="200"></canvas>
+            <canvas id="graficoAreasVoz" width="400" height="200"></canvas>
+            <canvas id="graficoAudiologia" width="400" height="200"></canvas>
+            <canvas id="graficoVestibular" width="400" height="200"></canvas>
+            <canvas id="graficoLenguaje" width="400" height="200"></canvas>
+        </section>
+
+        <hr>
+
+        <!-- Sección de Duración de las Agendas en General -->
+        <section>
+            <h2>Duración de las Agendas en General:</h2>
+            <ul>
+                <li>Consulta adultos o pediátricos: 20 minutos.</li>
+                <li>Tratamiento adultos: 30 minutos.</li>
+                <li>Tratamiento pediátrico: 60 minutos.</li>
+                <li>Prácticas: 30 a 120 minutos dependiendo de la práctica.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- Sección de Agendas Fonoaudiológicas -->
+        <section>
+            <h2>Agendas Fonoaudiológicas: Nombres, Duración y Formato</h2>
+            
+            <!-- Lista de Agendas -->
+            <div class="agendas">
+                <h3>Consulta Fonoaudiología</h3>
+                <ul>
+                    <li>Nombre de la agenda: Consulta Fonoaudiología</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 20 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Omnicanal.</li>
+                    <li>Observaciones: Requiere orden médica con derivación.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Consulta Fonoaudiología Pediátrica</h3>
+                <ul>
+                    <li>Nombre de la agenda: Consulta Fonoaudiología Pediátrica.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 20 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Omnicanal.</li>
+                    <li>Observaciones: Requiere orden médica con derivación.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Tratamiento Fonoaudiología (Subespecialidades)</h3>
+                <ul>
+                    <li>Nombre de la agenda: Tratamiento Fonoaudiología (con nombre de la especialidad).</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 30 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Propio Efector.</li>
+                    <li>Observaciones: Requiere derivación médica o de un fonoaudiólogo de cabecera.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Tratamiento Fonoaudiología Pediátrica (Subespecialidades)</h3>
+                <ul>
+                    <li>Nombre de la agenda: Tratamiento Fonoaudiología Pediátrica (con nombre de la especialidad).</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 60 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Propio Efector.</li>
+                    <li>Observaciones: Requiere derivación médica o de un fonoaudiólogo de cabecera.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Audiometría e Impedanciometría</h3>
+                <ul>
+                    <li>Nombre de la agenda: Audiometría e Impedanciometría.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 30 minutos.</li>
+                    <li>Formato de otorgamiento: Propio Efector.</li>
+                    <li>Observaciones: Requiere derivación médica y diagnóstico presuntivo.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Audiometría e Impedanciometría Pediátrica</h3>
+                <ul>
+                    <li>Nombre de la agenda: Audiometría e Impedanciometría Pediátrica.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 30 minutos.</li>
+                    <li>Formato de otorgamiento: Propio Efector.</li>
+                    <li>Observaciones: Requiere evaluación médica o fonoaudiólogo en los últimos 3 meses.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Otoemisiones Acústicas</h3>
+                <ul>
+                    <li>Nombre de la agenda: Otoemisiones Acústicas.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 30 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Exclusivo Propio Efector.</li>
+                    <li>Observaciones: Requiere orden médica y diagnóstico presuntivo.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Otoemisiones Acústicas Pediátricas</h3>
+                <ul>
+                    <li>Nombre de la agenda: Otoemisiones Acústicas Pediátricas.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 30 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Exclusivo Propio Efector.</li>
+                    <li>Observaciones: Requiere derivación médica.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Potenciales Evocados Auditivos</h3>
+                <ul>
+                    <li>Nombre de la agenda: Potenciales Evocados Auditivos.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 60 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Exclusivo Propio Efector.</li>
+                    <li>Observaciones: Requiere orden médica y ciertas precauciones como no aplicar productos grasos en el cabello el día del estudio.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Potenciales Evocados Auditivos Pediátricos</h3>
+                <ul>
+                    <li>Nombre de la agenda: Potenciales Evocados Auditivos Pediátricos.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 120 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Exclusivo Propio Efector.</li>
+                    <li>Observaciones: Restringir el sueño del niño la noche anterior a 4 horas, llegar despierto al estudio.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Pruebas Vestibulares</h3>
+                <ul>
+                    <li>Nombre de la agenda: Pruebas Vestibulares.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 60 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Exclusivo Propio Efector.</li>
+                    <li>Observaciones: Requiere orden médica.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Pruebas Vestibulares Pediátricas</h3>
+                <ul>
+                    <li>Nombre de la agenda: Pruebas Vestibulares Pediátricas.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 120 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Exclusivo Propio Efector.</li>
+                    <li>Observaciones: Requiere orden médica.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+
+                <h3>Laboratorio de la Voz</h3>
+                <ul>
+                    <li>Nombre de la agenda: Laboratorio de la Voz.</li>
+                    <li>Profesional: Fonoaudiólogo/a.</li>
+                    <li>Duración: 45 minutos.</li>
+                    <li>Formato de otorgamiento: 100% Exclusivo Propio Efector.</li>
+                    <li>Observaciones: Requiere derivación médica y estudios previos.</li>
+                    <li>Límite prospectivo: 28 días.</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Sección de Ejemplos de Nomenclaturas Posibles -->
+        <section>
+            <h2>Ejemplos de Nomenclaturas Posibles</h2>
+            <div class="nomenclaturas">
+                <h3>Consulta Fonoaudiología</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Consulta Fonoaudiología.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Consulta Fonoaudiología Pediátrica</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Consulta Fonoaudiología Pediátrica.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Tratamiento Fonoaudiología (Subespecialidades)</h3>
+                <ul>
+                    <li>Nombres de la agenda:
+                        <ul>
+                            <li>Tratamiento Fonoaudiología (Audiología).</li>
+                            <li>Tratamiento Fonoaudiología Pediátrica (Audiología).</li>
+                            <li>Tratamiento Fonoaudiología (Lenguaje y Comunicación).</li>
+                            <li>Tratamiento Fonoaudiología Pediátrica (Lenguaje y Comunicación).</li>
+                            <li>Tratamiento Fonoaudiología (Fonoestomatología).</li>
+                            <li>Tratamiento Fonoaudiología Pediátrica (Fonoestomatología).</li>
+                            <li>Tratamiento Fonoaudiología (Vestibular).</li>
+                            <li>Tratamiento Fonoaudiología Pediátrica (Vestibular).</li>
+                            <li>Tratamiento Fonoaudiología (Área de la Voz).</li>
+                            <li>Tratamiento Fonoaudiología Pediátrica (Área de la Voz).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Audiometría e Impedanciometría</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Audiometría e Impedanciometría.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Audiometría e Impedanciometría Pediátrica</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Audiometría e Impedanciometría Pediátrica.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Otoemisiones Acústicas</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Otoemisiones Acústicas.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Otoemisiones Acústicas Pediátricas</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Otoemisiones Acústicas Pediátricas.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Potenciales Evocados Auditivos</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Potenciales Evocados Auditivos.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Potenciales Evocados Auditivos Pediátricos</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Potenciales Evocados Auditivos Pediátricos.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Pruebas Vestibulares</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Pruebas Vestibulares.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Pruebas Vestibulares Pediátricas</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Pruebas Vestibulares Pediátricas.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Laboratorio de la Voz</h3>
+                <ul>
+                    <li>Nombre de la agenda:
+                        <ul>
+                            <li>Laboratorio de la Voz.</li>
+                            <li>Laboratorio de la Voz Pediátrico.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Vincular el archivo JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+</html>
